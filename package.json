@@ -1,0 +1,24 @@
+{
+  "name": "sbir",
+  "version": "0.1.0",
+  "description": "An SBIR solicitations browser with a chat room per solicitation",
+  "author": "Luc Castera <luc.castera@gmail.com>",
+  "contributors": [
+  ],
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/dambalah/sbir.git" 
+  },
+  "keywords": ["SBIR", "Small Business Administration", "SBIR Solicitations"],
+  "main": "./app.js",
+  "engines": {
+    "node": "v0.4.12"
+  },
+  "bin": { "node-http-proxy": "./bin/node-http-proxy" },
+  "scripts": { 
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+  },
+}
