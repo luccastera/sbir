@@ -1,10 +1,13 @@
 Sbir.statechart = SC.Statechart.create({
   rootState: SC.State.design({
+  
+    initialSubstate: 'solicitations',
 
     enterState: function() {
-      console.log('in root state');
-      Sbir.getPath('mainPage.mainPane').append() ;
-    }
+      Sbir.getPath('mainPage.mainPane').append();
+    },
+    
+    solicitations: SC.State.plugin('Sbir.SOLICITATIONS')
   })
 });
 
