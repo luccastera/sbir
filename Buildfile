@@ -1,3 +1,4 @@
 config :all, :required => :sproutcore
-proxy '/api', :to => 'www.sbir.gov'
 
+proxy '/agencies', :to => 'localhost:3000'
+proxy '/solicitations', :to => 'localhost:3000'

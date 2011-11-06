@@ -30,6 +30,7 @@ Sbir.mainPage = SC.Page.design({
         })
       }),
       contentView: SC.View.design({
+        classNames: 'scrollbars'.w(),
         backgroundColor: '#fff',
         childViews: 'menuItems'.w(),
         menuItems: SC.SourceListView.design({
@@ -72,6 +73,7 @@ Sbir.mainPage = SC.Page.design({
     backgrounColor: '#fff',
     childViews: 'list'.w(),
     list: SC.ListView.design({
+      layout: {left: 0, top: 0, bottom: 0, right: 0},
       contentBinding: 'Sbir.solicitationsController.content',
       exampleView: Sbir.SolicitationView
     })

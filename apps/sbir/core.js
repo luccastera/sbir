@@ -16,15 +16,30 @@ Sbir = SC.Application.create(
   NAMESPACE: 'Sbir',
   VERSION: '0.1.0',
 
-  store: SC.Store.create().from(SC.Record.fixtures),
+  store: SC.Store.create(),
 
   containerNowShowing: null,
+  
+  loadAgencies: function(response) {
+    console.log('loadAgencies');
+    if (SC.ok(response)) {
+      var data = response.get('body');
+      Sbir.store.loadRecords(Sbir.Agency, data);
+      SC.Request.getUrl('/solicitations.json').header({'Accept': 'application/json'}).json().notify(Sbir, 'loadSolicitations').send();
+    } else {
+      console.log('loadAgencies errored');
+    }
+  },
 
   loadSolicitations: function(response) {
     if (SC.ok(response)) {
-      console.log(response.get('body'));
+      var data = response.get('body');
+      Sbir.store.loadRecords(Sbir.Solicitation, data);
+      var agencies = Sbir.store.find(Sbir.Agency);
+      Sbir.agenciesController.set('content', agencies);
+      Sbir.statechart.gotoState('summary');
     } else {
-      console.log('errored');
+      console.log('loadSolicitations errored');
     }
   }
 

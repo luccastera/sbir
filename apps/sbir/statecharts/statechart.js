@@ -13,12 +13,7 @@ Sbir.statechart = SC.Statechart.create({
     loadData: SC.State.design({
       enterState: function() {
         Sbir.getPath('loadingPage.loadingPane').append();
-        var agencies = Sbir.store.find(Sbir.Agency);
-        Sbir.agenciesController.set('content', agencies);
-        var self = this;
-        this.invokeLater(function() {
-          self.gotoState('summary');
-        }, 2000);
+        SC.Request.getUrl('/agencies.json').header({'Accept': 'application/json'}).json().notify(Sbir, 'loadAgencies').send();
       },
       exitState: function() {
         Sbir.getPath('loadingPage.loadingPane').remove();

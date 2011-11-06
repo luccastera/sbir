@@ -23,7 +23,12 @@ div.solicitation {
 }
 
 div.solicitation h3 {
+  margin-top: 0;
   font-size: 16px;
+}
+
+div.solicitation p {
+  margin-left: 0 !important;
 }
 
 a {

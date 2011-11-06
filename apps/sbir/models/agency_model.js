@@ -15,6 +15,6 @@ Sbir.Agency = SC.Record.extend(
 /** @scope Sbir.Agency.prototype */ {
 
   name: SC.Record.attr(String),
-  longName: SC.Record.attr(String),
+  longName: SC.Record.attr(String, {key: 'long_name'}),
   solicitations: SC.Record.toMany('Sbir.Solicitation', {isMaster: YES})
 }) ;
