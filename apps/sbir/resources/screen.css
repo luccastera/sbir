@@ -16,3 +16,16 @@ div.left-column {
   text-align: center;
 }
 
+div.solicitation {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  white-space: normal;
+}
+
+div.solicitation h3 {
+  font-size: 16px;
+}
+
+a {
+  color: #608AB9 !important;
+}

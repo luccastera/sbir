@@ -1,3 +1,4 @@
 Sbir.SolicitationView = SC.TemplateView.design(Sbir.TargetAction,{
-  templateName: 'solicitation'
+  templateName: 'solicitation',
+  classNames: 'solicitation'.w()
 });
