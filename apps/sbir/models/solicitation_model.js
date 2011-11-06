@@ -14,6 +14,6 @@
 Sbir.Solicitation = SC.Record.extend(
 /** @scope Sbir.Solicitation.prototype */ {
 
-  title: SC.Record.attr(String)
-
+  title: SC.Record.attr(String),
+  agencies: SC.Record.toMany('Sbir.Agency', {isMaster: NO})
 }) ;
