@@ -1,0 +1,18 @@
+.clearfix {
+  display: block;
+  clear: both;
+  margin: 0;
+}
+
+.scrollbars {
+  white-space: nowrap;
+  overflow: auto;
+}
+
+div.left-column {
+  border-right: 1px solid #B4B4B4;
+}
+.text-centered {
+  text-align: center;
+}
+

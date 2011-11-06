@@ -18,6 +18,8 @@ Sbir = SC.Application.create(
 
   store: SC.Store.create().from(SC.Record.fixtures),
 
+  containerNowShowing: null,
+
   loadSolicitations: function(response) {
     if (SC.ok(response)) {
       console.log(response.get('body'));

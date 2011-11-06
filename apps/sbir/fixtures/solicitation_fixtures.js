@@ -10,7 +10,11 @@ Sbir.Solicitation.FIXTURES = [
 
   {
     guid: 1,
-    title: "A new method for creating Solar Panels using hydrogen peroxide",
+    title: "High Rate High Energy Storage Devices",
+    link: "http://www.sbir.gov/content/high-rate-high-energy-storage-devices",
+    description: "TECHNOLOGY AREAS: Ground/Sea Vehicles, ElectronicsACQUISITION PROGRAM: PEO Ground Combat SystemsOBJECTIVE: The objective of this project is to develop new energy storage materials capable of absorbing ...",
+    agency: "DOD,ARMY,NAVY,DARPA,OSD",
+    status: "Open/Future",
     agencies: [1,2,4]
   },
   {

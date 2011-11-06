@@ -11,13 +11,69 @@ Sbir.mainPage = SC.Page.design({
   // Add childViews to this pane for views to display immediately on page 
   // load.
   mainPane: SC.MainPane.design({
-    childViews: 'labelView'.w(),
-    
-    labelView: SC.LabelView.design({
-      layout: { centerX: 0, centerY: 0, width: 200, height: 18 },
-      textAlign: SC.ALIGN_CENTER,
-      tagName: "h1", 
-      value: "Welcome to SproutCore!"
+
+    defaultResponder: 'Sbir.statechart',
+
+    childViews: 'leftColumn mainColumn'.w(),
+    leftColumn: SC.WorkspaceView.design({
+      classNames: 'left-column'.w(),
+      layout: {left: 0, width: 300, top: 0, bottom: 0},
+      topToolbar: SC.ToolbarView.design({
+        layout: {left: 0, right: 0, top: 0, bottom: 0},
+        anchorLocation: SC.ANCHOR_TOP,
+        childViews: 'label'.w(),
+        label: SC.LabelView.design({
+          classNames: 'text-centered'.w(),
+          layout: {height: 20, centerY: 0, centerX: 0, width: 280},
+          value: 'Agencies',
+          fontWeight: SC.BOLD_WEIGHT
+        })
+      }),
+      contentView: SC.View.design({
+        backgroundColor: '#fff',
+        childViews: 'menuItems'.w(),
+        menuItems: SC.SourceListView.design({
+          backgroundColor: '#fff',
+          contentBinding: 'Sbir.agenciesController.arrangedObjects',
+          selectionBinding: 'Sbir.agenciesController.selection',
+          contentValueKey: 'name',
+          titleValueKey: 'longName',
+          exampleView: SC.ListItemView.design({
+            childViews: 'label'.w(),
+            label: SC.LabelView.design({})
+          })
+        })
+      })
+    }),
+
+    mainColumn: SC.WorkspaceView.design({
+      className: 'main-column'.w(),
+      layout: {left: 301, right: 0, top: 0, bottom: 0},
+      topToolbar: SC.ToolbarView.design({
+        layout: {left: 0, right: 0, top: 0, bottom: 0},
+        anchorLocation: SC.ANCHOR_TOP,
+        childViews: 'label'.w(),
+        label: SC.LabelView.design({
+          classNames: 'text-centered'.w(),
+          layout: {height: 20, centerY: 0, centerX: 0, width: 400},
+          fontWeight: SC.BOLD_WEIGHT,
+          valueBinding: 'Sbir.agencyController.longName'
+        })
+      }),
+      contentView: SC.ContainerView.design({
+        contentView: null,
+        nowShowingBinding: 'Sbir.containerNowShowing'
+      })
+    })
+  }),
+  
+  solicitationsView: SC.View.design({
+    classNames: 'scrollbars solicitations'.w(),
+    backgrounColor: '#fff',
+    childViews: 'list'.w(),
+    list: SC.ListView.design({
+      contentBinding: 'Sbir.solicitationsController.content',
+      exampleView: Sbir.SolicitationView
     })
   })
 
