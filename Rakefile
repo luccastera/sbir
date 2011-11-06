@@ -25,7 +25,7 @@ end
 require 'net/ssh'
 require 'net/scp'
 
-REMOTE_DIR = "/home/luc/www/sbir/current/public/"
+REMOTE_DIR = "/home/luc/www/sbir-backend/current/public"
 
 desc "Deploy the site"
 task :deploy => :clean do
@@ -35,20 +35,20 @@ task :deploy => :clean do
   status = system 'sc-build'
   
   if status
-    deployid = `ls tmp/build/app/sbir/en`.strip
+    deployid = `ls tmp/build/sbir/en`.strip
     
     puts "creating archive..."
-    system 'cd tmp/build/app/ && tar -cvpzf app.tar.gz sbir/ sproutcore/'
+    system 'cd tmp/build/ && tar -cvpzf app.tar.gz sbir/ sproutcore/'
       
 		puts "uploading archive..."
-		Net::SCP.start("sbirsolicitations.com", 'luc', :port => 30000) do |scp|
-		  scp.upload! 'tmp/build/app/app.tar.gz',  REMOTE_DIR
+		Net::SCP.start("sbir.job509.com", 'luc', :port => 30000) do |scp|
+		  scp.upload! 'tmp/build/app.tar.gz',  REMOTE_DIR
 		end
   
     puts "setting up server..."
-		Net::SSH.start('sbirsolicitations.com', 'luc', :port => 30000) do |ssh|
+		Net::SSH.start('sbir.job509.com', 'luc', :port => 30000) do |ssh|
 		  ssh.exec! "rm -rf #{REMOTE_DIR}/sbir"
-		  ssh.exec! "rm -rf #{REMOTE_DIR}/sbir"
+		  ssh.exec! "rm -rf #{REMOTE_DIR}/sproutcore"
 
 		  ssh.exec! "cd #{REMOTE_DIR}/ && tar xzvf app.tar.gz"
 		  ssh.exec! "rm #{REMOTE_DIR}/app.tar.gz"
