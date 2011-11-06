@@ -1,0 +1,8 @@
+==========================================================================
+Project:   Sbir
+Copyright: @2011 Luc Castera
+==========================================================================
+
+This application is a simple browser for SBIR solicitations.
+
+It uses the SBIR.gov API: http://www.sbir.gov/api/solicitations.json
