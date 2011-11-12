@@ -34,3 +34,16 @@ div.solicitation p {
 a {
   color: #608AB9 !important;
 }
+
+div.about, div.graph {
+  padding: 20px;
+  font-size: 1.4em;
+}
+
+div.about:focus, div.graph:focus {
+  outline: none;
+}
+
+div.summary {
+  background-color: #fff;
+}

@@ -77,6 +77,18 @@ Sbir.mainPage = SC.Page.design({
       contentBinding: 'Sbir.solicitationsController.content',
       exampleView: Sbir.SolicitationView
     })
+  }),
+  
+  summaryView: SC.View.design({
+    classNames: 'scrollbars summary'.w(),
+    backgrounColor: '#fff',
+    childViews: 'about graph'.w(),
+    about: Sbir.AboutView.design({
+      layout: {left: 0, right: 0, top: 0, height: 100}
+    }),
+    graph: Sbir.GraphView.design({
+      layout: {left: 0, right: 0, bottom: 0, top: 100}
+    })
   })
 
 });

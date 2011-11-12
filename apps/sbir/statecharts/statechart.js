@@ -24,6 +24,10 @@ Sbir.statechart = SC.Statechart.create({
     summary: SC.State.design({
       enterState: function() {
         console.log('enter summary state');
+        Sbir.set('containerNowShowing', 'summaryView');
+        this.invokeLater(function() {
+          Sbir.drawGraph();
+        }, 50);
       }
     }),
     
