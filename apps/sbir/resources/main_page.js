@@ -30,18 +30,19 @@ Sbir.mainPage = SC.Page.design({
         })
       }),
       contentView: SC.View.design({
-        classNames: 'scrollbars'.w(),
         backgroundColor: '#fff',
-        childViews: 'menuItems'.w(),
-        menuItems: SC.SourceListView.design({
-          backgroundColor: '#fff',
-          contentBinding: 'Sbir.agenciesController.arrangedObjects',
-          selectionBinding: 'Sbir.agenciesController.selection',
-          contentValueKey: 'name',
-          titleValueKey: 'longName',
-          exampleView: SC.ListItemView.design({
-            childViews: 'label'.w(),
-            label: SC.LabelView.design({})
+        childViews: 'scroller'.w(),
+        scroller: SC.ScrollView.design({
+          contentView: SC.SourceListView.design({
+            backgroundColor: '#fff',
+            contentBinding: 'Sbir.agenciesController.arrangedObjects',
+            selectionBinding: 'Sbir.agenciesController.selection',
+            contentValueKey: 'name',
+            titleValueKey: 'longName',
+            exampleView: SC.ListItemView.design({
+              childViews: 'label'.w(),
+              label: SC.LabelView.design({})
+            })
           })
         })
       })
@@ -53,18 +54,24 @@ Sbir.mainPage = SC.Page.design({
       topToolbar: SC.ToolbarView.design({
         layout: {left: 0, right: 0, top: 0, bottom: 0},
         anchorLocation: SC.ANCHOR_TOP,
-        childViews: 'homeButton label'.w(),
+        childViews: 'homeButton backButton label'.w(),
         homeButton: SC.ButtonView.design({
           layout: {left: 20, height: 24, width: 80, centerY: 0},
           title: 'Home',
           isVisibleBinding: 'Sbir.showHomeButton',
           action: 'goHome'
         }),
+        backButton: SC.ButtonView.design({
+          layout: {left: 120, height: 24, width: 80, centerY: 0},
+          title: 'Go Back',
+          isVisibleBinding: 'Sbir.showBackButton',
+          action: 'goBack'
+        }),
         label: SC.LabelView.design({
           classNames: 'text-centered'.w(),
           layout: {height: 20, centerY: 0, centerX: 0, width: 400},
           fontWeight: SC.BOLD_WEIGHT,
-          valueBinding: 'Sbir.agencyController.longName'
+          valueBinding: 'Sbir.agencyController.toolbarTitle'
         })
       }),
       contentView: SC.ContainerView.design({
@@ -75,14 +82,21 @@ Sbir.mainPage = SC.Page.design({
   }),
   
   solicitationsView: SC.View.design({
-    classNames: 'scrollbars solicitations'.w(),
-    backgrounColor: '#fff',
-    childViews: 'list'.w(),
-    list: SC.ListView.design({
-      layout: {left: 0, top: 0, bottom: 0, right: 0},
-      contentBinding: 'Sbir.solicitationsController.content',
-      exampleView: Sbir.SolicitationView,
-      rowHeight: 120
+    classNames: 'solicitations'.w(),
+    childViews: 'scroller'.w(),
+    scroller: SC.ScrollView.design({
+      contentView: SC.ListView.design({
+        contentBinding: 'Sbir.solicitationsController.arrangedObjects',
+        selectionBinding: 'Sbir.solicitationsController.selection',
+        classNames: 'solicitation'.w(),
+        contentValueKey: 'title',
+        rowHeight: 40,
+        showAlternatingRows: YES,
+        action: 'viewSolicitation',
+        exampleView: SC.ListItemView.design({
+          tooltip: "Double click to view details"
+        })
+      })
     })
   }),
   
@@ -96,6 +110,12 @@ Sbir.mainPage = SC.Page.design({
     graph: Sbir.GraphView.design({
       layout: {left: 0, right: 0, bottom: 0, top: 100}
     })
+  }),
+  
+  solicitationView: Sbir.SolicitationView.design({
+    classNames: 'scrollbars'.w(),
+    layout: {left: 0, bottom: 0, top: 0, right: 0},
+    contentBinding: 'Sbir.solicitationController.content'
   })
 
 });

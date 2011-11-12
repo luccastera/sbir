@@ -13,6 +13,7 @@
 Sbir.solicitationsController = SC.ArrayController.create(
 /** @scope Sbir.solicitationsController.prototype */ {
 
-  // TODO: Add your own code here.
+  allowsMultipleSelection: NO,
+  orderBy: 'title'
 
 }) ;

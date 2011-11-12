@@ -21,5 +21,13 @@ Sbir.agencyController = SC.ObjectController.create(
       console.log('agency changed', this.get('name'));
       Sbir.statechart.sendEvent('agencyChanged');
     }
-  }.observes('name')
+  }.observes('name'),
+  
+  toolbarTitle: function() {
+    if (this.get('longName')) {
+      return this.get('longName');
+    } else {
+      return 'SBIR Solicitations';
+    }
+  }.property('longName')
 }) ;

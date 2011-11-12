@@ -16,22 +16,6 @@ div.left-column {
   text-align: center;
 }
 
-div.solicitation {
-  height: 120px;
-  padding: 10px;
-  border-bottom: 1px solid #ccc;
-  white-space: normal;
-}
-
-div.solicitation h3 {
-  margin-top: 0;
-  font-size: 16px;
-}
-
-div.solicitation p {
-  margin-left: 0 !important;
-}
-
 a {
   color: #608AB9 !important;
 }
@@ -41,10 +25,30 @@ div.about, div.graph {
   font-size: 1.4em;
 }
 
+div.about h1, div.about h2 {
+  margin-top: 0px;
+}
+
 div.about:focus, div.graph:focus {
   outline: none;
 }
 
 div.summary {
   background-color: #fff;
+}
+
+div.solicitations {
+  background-color: #fff;
+}
+
+div.solicitations .sc-list-item-view {
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 17px;
+}
+
+div.solicitation {
+  background-color: #fff;
+  height: 100%;
+  padding: 20px;
+  white-space: normal;
 }

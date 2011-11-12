@@ -13,6 +13,7 @@
 Sbir.agenciesController = SC.ArrayController.create(
 /** @scope Sbir.agenciesController.prototype */ {
 
-  // TODO: Add your own code here.
+  allowsMultipleSelection: NO,
+  orderBy: 'name'
 
 }) ;
