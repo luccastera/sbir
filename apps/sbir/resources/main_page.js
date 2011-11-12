@@ -116,6 +116,16 @@ Sbir.mainPage = SC.Page.design({
     classNames: 'scrollbars'.w(),
     layout: {left: 0, bottom: 0, top: 0, right: 0},
     contentBinding: 'Sbir.solicitationController.content'
+  }),
+  
+  emptyAgencyView: SC.View.design({
+    classNames: 'empty'.w(),
+    backgroundColor: '#fff',
+    childViews: 'label'.w(),
+    label: SC.LabelView.design({
+      layout: {top: 20, left: 0, right: 0, height: 100},
+      value: 'There are currently no solicitations for this agency'
+    })
   })
 
 });

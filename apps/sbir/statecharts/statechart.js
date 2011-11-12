@@ -42,11 +42,14 @@ Sbir.statechart = SC.Statechart.create({
     agency: SC.State.design({
       enterState: function() {
         var agency = Sbir.agencyController.get('content');
-        Sbir.solicitationsController.set('content', agency.get('solicitations'));
-        
-        this.invokeLater(function() {
-          Sbir.set('containerNowShowing', 'solicitationsView');
-        })
+        if (agency.getPath('solicitations.length') > 0) {
+          Sbir.solicitationsController.set('content', agency.get('solicitations'));
+          this.invokeLater(function() {
+            Sbir.set('containerNowShowing', 'solicitationsView');
+          })
+        } else {
+          Sbir.set('containerNowShowing', 'emptyAgencyView');
+        }
       },
 
       viewSolicitation: function() {
