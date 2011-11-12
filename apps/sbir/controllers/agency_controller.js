@@ -17,7 +17,9 @@ Sbir.agencyController = SC.ObjectController.create(
   contentBindingDefault: SC.Binding.single(),
 
   contentDidChange: function() {
-    console.log('agency changed', this.get('name'));
-    Sbir.statechart.sendEvent('agencyChanged');
+    if (this.get('content')) {
+      console.log('agency changed', this.get('name'));
+      Sbir.statechart.sendEvent('agencyChanged');
+    }
   }.observes('name')
 }) ;

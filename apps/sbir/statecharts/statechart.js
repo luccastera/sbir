@@ -9,6 +9,10 @@ Sbir.statechart = SC.Statechart.create({
     agencyChanged: function() {
       this.gotoState('agency');
     },
+    goHome: function() {
+      Sbir.agenciesController.set('selection', null);
+      this.gotoState('summary');
+    },
 
     loadData: SC.State.design({
       enterState: function() {
@@ -23,11 +27,15 @@ Sbir.statechart = SC.Statechart.create({
     
     summary: SC.State.design({
       enterState: function() {
+        Sbir.set('showHomeButton', false);
         console.log('enter summary state');
         Sbir.set('containerNowShowing', 'summaryView');
         this.invokeLater(function() {
           Sbir.drawGraph();
         }, 50);
+      },
+      exitState: function() {
+        Sbir.set('showHomeButton', true);
       }
     }),
     

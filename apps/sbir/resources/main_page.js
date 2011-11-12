@@ -53,7 +53,13 @@ Sbir.mainPage = SC.Page.design({
       topToolbar: SC.ToolbarView.design({
         layout: {left: 0, right: 0, top: 0, bottom: 0},
         anchorLocation: SC.ANCHOR_TOP,
-        childViews: 'label'.w(),
+        childViews: 'homeButton label'.w(),
+        homeButton: SC.ButtonView.design({
+          layout: {left: 20, height: 24, width: 80, centerY: 0},
+          title: 'Home',
+          isVisibleBinding: 'Sbir.showHomeButton',
+          action: 'goHome'
+        }),
         label: SC.LabelView.design({
           classNames: 'text-centered'.w(),
           layout: {height: 20, centerY: 0, centerX: 0, width: 400},
@@ -75,7 +81,8 @@ Sbir.mainPage = SC.Page.design({
     list: SC.ListView.design({
       layout: {left: 0, top: 0, bottom: 0, right: 0},
       contentBinding: 'Sbir.solicitationsController.content',
-      exampleView: Sbir.SolicitationView
+      exampleView: Sbir.SolicitationView,
+      rowHeight: 120
     })
   }),
   

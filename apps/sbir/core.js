@@ -20,6 +20,8 @@ Sbir = SC.Application.create(
 
   containerNowShowing: null,
   
+  showHomeButton: true,
+  
   loadAgencies: function(response) {
     console.log('loadAgencies');
     if (SC.ok(response)) {

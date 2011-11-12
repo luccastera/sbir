@@ -17,6 +17,7 @@ div.left-column {
 }
 
 div.solicitation {
+  height: 120px;
   padding: 10px;
   border-bottom: 1px solid #ccc;
   white-space: normal;
