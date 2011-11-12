@@ -52,14 +52,14 @@ Sbir = SC.Application.create(
     data.addColumn('number', 'Solicitations');
     var agencies = Sbir.store.find(Sbir.Agency);
     var index = 0;
-    agencies.forEach(function(agency) { 
+    agencies.forEach(function(agency) {
       if (agency.get('solicitations').get('length') > 0) {
         data.addRows(1);
         data.setValue(index,0, agency.get('name'));
         data.setValue(index,1, agency.get('solicitations').get('length'));
         index = index + 1;
       }
-    })
+    });
     data.sort({column: 1, desc: true});
     var chart = new google.visualization.ColumnChart(document.getElementById('sbir-graph'));
     chart.draw(data, {

@@ -46,7 +46,7 @@ Sbir.statechart = SC.Statechart.create({
           Sbir.solicitationsController.set('content', agency.get('solicitations'));
           this.invokeLater(function() {
             Sbir.set('containerNowShowing', 'solicitationsView');
-          })
+          });
         } else {
           Sbir.set('containerNowShowing', 'emptyAgencyView');
         }
@@ -66,7 +66,7 @@ Sbir.statechart = SC.Statechart.create({
         Sbir.set('showBackButton', false);
       },
       goBack: function() {
-        this.gotoState('agency')
+        this.gotoState('agency');
       }
     })
   })
