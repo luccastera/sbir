@@ -79,17 +79,25 @@ div.comment {
   border-bottom: 1px dotted #b4b4b4;
 }
 
+.comment-box textarea {
+  padding: 3px;
+}
+
 div.comment div.user {
   width: 120px;
   float: left;
   text-align: right;
   padding: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 div.comment div.comment-body {
   margin-left: 140px;
   padding: 10px;
   border-left: 1px dotted #b4b4b4;
+  min-height: 35px;
 }
 
 div.comment div.metadata {
@@ -103,4 +111,11 @@ div.solicitation h3 {
   background-color: #608AB9;
   color: #fff;
   font-size: 18px;
+}
+
+.popup-toolbar {
+  background-color: #eee;
+  border: 1px solid #ccc;
+  fontWeight: bold;
+  color: #666;
 }

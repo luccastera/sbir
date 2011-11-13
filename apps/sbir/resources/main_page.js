@@ -136,11 +136,14 @@ Sbir.mainPage = SC.Page.design({
       classNames: 'new-comment'.w(),
       childViews: 'textbox button'.w(),
       textbox: SC.TextFieldView.design({
-        layout: {left: 20, top: 20, bottom: 20, right: 200}
+        classNames: 'comment-box'.w(),
+        layout: {left: 20, top: 20, bottom: 20, right: 200},
+        isTextArea: YES
       }),
       button: SC.ButtonView.design({
         layout: {right: 20, width: 120, top: 20, height: 24},
-        title: 'Add Comment'
+        title: 'Add Comment',
+        action: 'addComment'
       })
     })
   }),

@@ -23,14 +23,15 @@ Sbir = SC.Application.create(
   showHomeButton: true,
   showBackButton: false,
   
+  savedComment: null,
+  
   loadAgencies: function(response) {
-    console.log('loadAgencies');
     if (SC.ok(response)) {
       var data = response.get('body');
       Sbir.store.loadRecords(Sbir.Agency, data);
       SC.Request.getUrl('/solicitations.json').header({'Accept': 'application/json'}).json().notify(Sbir, 'loadSolicitations').send();
     } else {
-      console.log('loadAgencies errored');
+      if (console && console.log) {console.log('loadAgencies errored');}
     }
   },
 
@@ -42,7 +43,7 @@ Sbir = SC.Application.create(
       Sbir.agenciesController.set('content', agencies);
       Sbir.statechart.gotoState('summary');
     } else {
-      console.log('loadSolicitations errored');
+      if (console && console.log) {console.log('loadSolicitations errored');}
     }
   },
   
@@ -73,6 +74,45 @@ Sbir = SC.Application.create(
         slantedText: YES
       }
     });
+  },
+  
+  loadComments: function(response) {
+    if (SC.ok(response)) {
+      var comments = response.get('body');
+      Sbir.commentsController.set('content', comments);
+    } else {
+      if (console && console.log) {console.log('loadComments error');}
+    }
+  },
+  
+  savedUser: function(response) {
+    if (SC.ok(response)) {
+      var user = response.get('body').user;
+      Sbir.currentUserController.set('content', user);
+      Sbir.savedComment.user_id = user.guid;
+      Sbir.statechart.gotoState('solicitation');
+      Sbir.saveComment(Sbir.savedComment);
+    } else {
+      if (console && console.log) {console.log('savedUser error');}
+    }
+  },
+  
+  saveCommentCallback: function(response) {
+    if (SC.ok(response)) {
+      if (response.get('body').status == 'ok') {
+        var comment = response.get('body').comment;
+        SC.$('.comment-box textarea').val(''); //clear comment box
+        Sbir.commentsController.pushObject(comment);
+      } else {
+        if (console && console.log) {console.log('error saving comment');}
+      }
+    } else {
+      if (console && console.log) {console.log('error saving comment');}
+    }
+  },
+  
+  saveComment: function(comment) {
+    SC.Request.postUrl('/comments.json').header({'Accept': 'application/json'}).json().notify(Sbir, 'saveCommentCallback').send({comment: comment});
   }
 
 }) ;

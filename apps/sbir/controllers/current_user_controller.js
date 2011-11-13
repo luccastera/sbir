@@ -1,5 +1,5 @@
 // ==========================================================================
-// Project:   Sbir.commentsController
+// Project:   Sbir.currentUserController
 // Copyright: @2011 My Company, Inc.
 // ==========================================================================
 /*globals Sbir */
@@ -8,10 +8,10 @@
 
   (Document Your Controller Here)
 
-  @extends SC.ArrayController
+  @extends SC.Object
 */
-Sbir.commentsController = SC.ArrayController.create(
-/** @scope Sbir.commentsController.prototype */ {
+Sbir.currentUserController = SC.ObjectController.create(
+/** @scope Sbir.currentUserController.prototype */ {
 
   content: null
 
