@@ -29,7 +29,7 @@ div.about h1, div.about h2 {
   margin-top: 0px;
 }
 
-div.about:focus, div.graph:focus {
+:focus {
   outline: none;
 }
 
@@ -48,7 +48,6 @@ div.solicitations .sc-list-item-view {
 
 div.solicitation {
   background-color: #fff;
-  height: 100%;
   padding: 0px;
   white-space: normal;
 }
@@ -68,27 +67,32 @@ div.solicitation-details {
   background-color: #f0f0f0;
   padding: 20px;
   white-space: normal;
+  height: 20%;
 }
 
-div.message {
+div.new-comment {
+  border-top: 1px solid #b4b4b4;
+}
+
+div.comment {
   font-size: 15px;
   border-bottom: 1px dotted #b4b4b4;
 }
 
-div.message div.user {
+div.comment div.user {
   width: 120px;
   float: left;
   text-align: right;
   padding: 10px;
 }
 
-div.message div.message-body {
+div.comment div.comment-body {
   margin-left: 140px;
   padding: 10px;
   border-left: 1px dotted #b4b4b4;
 }
 
-div.message div.metadata {
+div.comment div.metadata {
   font-size: 11px;
   color: #b4b4b4;
 }

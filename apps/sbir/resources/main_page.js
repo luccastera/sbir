@@ -75,6 +75,7 @@ Sbir.mainPage = SC.Page.design({
         })
       }),
       contentView: SC.ContainerView.design({
+        backgroundColor: '#fff',
         contentView: null,
         nowShowingBinding: 'Sbir.containerNowShowing'
       })
@@ -112,10 +113,36 @@ Sbir.mainPage = SC.Page.design({
     })
   }),
   
-  solicitationView: Sbir.SolicitationView.design({
-    classNames: 'scrollbars'.w(),
+  solicitationView: SC.View.design({
     layout: {left: 0, bottom: 0, top: 0, right: 0},
-    contentBinding: 'Sbir.solicitationController.content'
+    childViews: 'header comments newComment'.w(),
+    header: Sbir.SolicitationView.design({
+      useStaticLayout: NO,
+      layout: {left: 0, height: 200, top: 0, right: 0},
+      contentBinding: 'Sbir.solicitationController.content'
+    }),
+    comments: SC.View.design({
+      childViews: 'scroller'.w(),
+      scroller: SC.ScrollView.design({
+        contentView: SC.ListView.design({
+          layout: {left: 0, right: 0, top: 200, bottom: 100},
+          contentBinding: 'Sbir.commentsController.arrangedObjects',
+          exampleView: Sbir.CommentView
+        })
+      })
+    }),
+    newComment: SC.View.design({
+      layout: {left: 0, right: 0, bottom: 0, height: 100},
+      classNames: 'new-comment'.w(),
+      childViews: 'textbox button'.w(),
+      textbox: SC.TextFieldView.design({
+        layout: {left: 20, top: 20, bottom: 20, right: 200}
+      }),
+      button: SC.ButtonView.design({
+        layout: {right: 20, width: 120, top: 20, height: 24},
+        title: 'Add Comment'
+      })
+    })
   }),
   
   emptyAgencyView: SC.View.design({
