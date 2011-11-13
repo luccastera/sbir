@@ -98,6 +98,7 @@ div.comment div.comment-body {
   padding: 10px;
   border-left: 1px dotted #b4b4b4;
   min-height: 35px;
+  white-space: normal;
 }
 
 div.comment div.metadata {

@@ -122,13 +122,12 @@ Sbir.mainPage = SC.Page.design({
       contentBinding: 'Sbir.solicitationController.content'
     }),
     comments: SC.View.design({
-      childViews: 'scroller'.w(),
-      scroller: SC.ScrollView.design({
-        contentView: SC.ListView.design({
-          layout: {left: 0, right: 0, top: 200, bottom: 100},
-          contentBinding: 'Sbir.commentsController.arrangedObjects',
-          exampleView: Sbir.CommentView
-        })
+      childViews: 'list'.w(),
+      list: SC.ListView.design({
+        classNames: 'scrollbars'.w(),
+        layout: {left: 0, right: 0, top: 200, bottom: 100},
+        contentBinding: 'Sbir.commentsController.arrangedObjects',
+        exampleView: Sbir.CommentView
       })
     }),
     newComment: SC.View.design({
