@@ -49,12 +49,54 @@ div.solicitations .sc-list-item-view {
 div.solicitation {
   background-color: #fff;
   height: 100%;
-  padding: 20px;
+  padding: 0px;
   white-space: normal;
+}
+
+div.solicitation h2 {
+  margin-top: 0;
 }
 
 div.empty .sc-label-view {
   text-align: center;
   font-size: 17px;
   color: #ccc;
+}
+
+div.solicitation-details {
+  border-bottom: 1px solid #B4B4B4;
+  background-color: #f0f0f0;
+  padding: 20px;
+  white-space: normal;
+}
+
+div.message {
+  font-size: 15px;
+  border-bottom: 1px dotted #b4b4b4;
+}
+
+div.message div.user {
+  width: 120px;
+  float: left;
+  text-align: right;
+  padding: 10px;
+}
+
+div.message div.message-body {
+  margin-left: 140px;
+  padding: 10px;
+  border-left: 1px dotted #b4b4b4;
+}
+
+div.message div.metadata {
+  font-size: 11px;
+  color: #b4b4b4;
+}
+
+div.solicitation h3 {
+  margin: 0;
+  padding: 10px 10px;
+  background-color: #608AB9;
+  color: #fff;
+  font-size: 18px;
 }
