@@ -6,6 +6,8 @@ proxy '/agencies', :to => 'localhost:3000'
 proxy '/solicitations', :to => 'localhost:3000'
 proxy '/users', :to => 'localhost:3000'
 proxy '/comments', :to => 'localhost:3000'
+proxy '/whoami', :to => 'localhost:3000'
+proxy '/logout', :to => 'localhost:3000'
 
 # PRODUCTION
 

@@ -28,6 +28,17 @@ Sbir = SC.Application.create(
   
   savedComment: null,
   
+  loadedSession: function(response) {
+    if (SC.ok(response)) {
+      var data = response.get('body');
+      console.log(data)
+      if (data.status == 'ok') {
+        Sbir.currentUserController.set('content', data.user);
+      }
+    }
+    Sbir.statechart.gotoState('loadData');
+  },
+  
   loadAgencies: function(response) {
     if (SC.ok(response)) {
       var data = response.get('body');

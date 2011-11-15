@@ -1,7 +1,7 @@
 Sbir.statechart = SC.Statechart.create({
   rootState: SC.State.design({
   
-    initialSubstate: 'loadData',
+    initialSubstate: 'loadSession',
 
     enterState: function() {
       Sbir.pusher = new Pusher('e084ad5e577f43e7de8b');
@@ -24,15 +24,21 @@ Sbir.statechart = SC.Statechart.create({
       Sbir.agenciesController.set('selection', null);
       this.gotoState('summary');
     },
+    
+    loadSession: SC.State.design({
+      enterState: function() {
+        Sbir.getPath('loadingPage.loadingPane').append();
+        SC.Request.getUrl('/whoami.json').header({'Accept': 'application/json'}).json().notify(Sbir, 'loadedSession').send();
+      }
+    }),
 
     loadData: SC.State.design({
       enterState: function() {
-        Sbir.getPath('loadingPage.loadingPane').append();
         SC.Request.getUrl('/agencies.json').header({'Accept': 'application/json'}).json().notify(Sbir, 'loadAgencies').send();
       },
       exitState: function() {
         Sbir.getPath('loadingPage.loadingPane').remove();
-         Sbir.getPath('mainPage.mainPane').append();
+        Sbir.getPath('mainPage.mainPane').append();
       }
     }),
     
