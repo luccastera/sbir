@@ -28,17 +28,6 @@ Sbir = SC.Application.create(
   
   savedComment: null,
   
-  loadedSession: function(response) {
-    if (SC.ok(response)) {
-      var data = response.get('body');
-      console.log(data)
-      if (data.status == 'ok') {
-        Sbir.currentUserController.set('content', data.user);
-      }
-    }
-    Sbir.statechart.gotoState('loadData');
-  },
-  
   loadAgencies: function(response) {
     if (SC.ok(response)) {
       var data = response.get('body');
@@ -103,6 +92,7 @@ Sbir = SC.Application.create(
     if (SC.ok(response)) {
       var user = response.get('body').user;
       Sbir.currentUserController.set('content', user);
+      localStorage.setItem('currentUser', JSON.stringify(user));
       Sbir.savedComment.user_id = user.guid;
       Sbir.statechart.gotoState('solicitation');
       Sbir.saveComment(Sbir.savedComment);

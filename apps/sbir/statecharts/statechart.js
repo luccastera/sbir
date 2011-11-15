@@ -28,7 +28,11 @@ Sbir.statechart = SC.Statechart.create({
     loadSession: SC.State.design({
       enterState: function() {
         Sbir.getPath('loadingPage.loadingPane').append();
-        SC.Request.getUrl('/whoami.json').header({'Accept': 'application/json'}).json().notify(Sbir, 'loadedSession').send();
+        if (localStorage.getItem('currentUser')) {
+          var user = JSON.parse(localStorage.getItem('currentUser'))
+          Sbir.currentUserController.set('content', user);
+        }
+        this.gotoState('loadData');
       }
     }),
 
