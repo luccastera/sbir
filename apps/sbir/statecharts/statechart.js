@@ -4,6 +4,17 @@ Sbir.statechart = SC.Statechart.create({
     initialSubstate: 'loadData',
 
     enterState: function() {
+      Sbir.pusher = new Pusher('e084ad5e577f43e7de8b');
+      var channel = Sbir.pusher.subscribe('comments');
+      channel.bind('new_comment', function(data) {
+        console.log('pusher received', data);
+        var solicitationId = data.solicitation_id;
+        if (Sbir.solicitationController.get('id') == solicitationId) {
+          SC.RunLoop.begin();
+          Sbir.commentsController.get('content').pushObject(data);
+          SC.RunLoop.end();
+        }
+      });
     },
     
     agencyChanged: function() {

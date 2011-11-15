@@ -23,6 +23,9 @@ Sbir = SC.Application.create(
   showHomeButton: true,
   showBackButton: false,
   
+  pusher: null,
+  pusherChannel: null,
+  
   savedComment: null,
   
   loadAgencies: function(response) {
@@ -102,7 +105,6 @@ Sbir = SC.Application.create(
       if (response.get('body').status == 'ok') {
         var comment = response.get('body').comment;
         SC.$('.comment-box textarea').val(''); //clear comment box
-        Sbir.commentsController.pushObject(comment);
       } else {
         if (console && console.log) {console.log('error saving comment');}
       }

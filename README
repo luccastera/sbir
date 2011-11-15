@@ -12,3 +12,6 @@ TODO
 
 * Form validation on user form.
 * nice loading page
+* server-side sessions
+* clicking on user name next to comment should open up a popup with user info
+* Adding comment enter box should work.
