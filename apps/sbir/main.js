@@ -32,7 +32,6 @@ function readCookie(name) {
 }
 
 if (!window.localStorage) {
-  console.log('define localStorage')
   localStorage = (function() {
     return {
       setItem: function(key, value) {
