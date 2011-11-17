@@ -85,6 +85,7 @@ Sbir.statechart = SC.Statechart.create({
         Sbir.set('showBackButton', true);
       },
       exitState: function() {
+        Sbir.commentsController.set('content', []);
         Sbir.set('showBackButton', false);
       },
       goBack: function() {

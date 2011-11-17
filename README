@@ -12,6 +12,7 @@ TODO
 
 * Form validation on user form.
 * nice loading page
-* server-side sessions
 * clicking on user name next to comment should open up a popup with user info
 * Adding comment enter box should work.
+* Implement localStorage for old browsers (see HTML5 book)
+* Let user sign-out (clear local storage)

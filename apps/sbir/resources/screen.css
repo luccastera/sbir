@@ -88,7 +88,7 @@ div.comment div.user {
   width: 120px;
   float: left;
   text-align: right;
-  padding: 10px;
+  padding: 9px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
