@@ -110,6 +110,17 @@ Sbir.statechart = SC.Statechart.create({
             Sbir.savedComment = comment;
             this.gotoState('getuser');
           }
+        },
+        
+        showUser: function(view) {
+          var comment = view.content;
+          var user = comment.user;
+          console.log(user);
+          Sbir.userController.set('content', user);
+          Sbir.getPath('userInfoPage.userInfoPanel').append();
+        },
+        cancel: function() {
+          Sbir.getPath('userInfoPage.userInfoPanel').remove();
         }
       }),
     

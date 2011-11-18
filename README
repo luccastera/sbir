@@ -11,6 +11,5 @@ TODO
 ====
 
 * Form validation on user form.
-* clicking on user name next to comment should open up a popup with user info
 * Adding comment enter box should work.
 * Let user sign-out (clear local storage)

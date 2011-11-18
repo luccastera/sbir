@@ -1,0 +1,22 @@
+<table class="user-info-table">
+  <tr>
+    <td>First Name:</td>
+    <td>{{content.firstname}}</td>
+  </tr>
+  <tr>
+    <td>Last Name:</td>
+    <td>{{content.lastname}}</td>
+  </tr>
+  <tr>
+    <td>Company:</td>
+    <td>{{content.company}}</td>
+  </tr>
+  <tr>
+    <td>Email</td>
+    <td>{{content.email}}</td>
+  </tr>
+  <tr>
+    <td>Website</td>
+    <td><a {{bindAttr target="_blank" href="content.website"}}>{{content.website}}</a></td>
+  </tr>
+</table>

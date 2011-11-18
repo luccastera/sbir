@@ -145,3 +145,17 @@ div.solicitation h3 {
   fontWeight: bold;
   color: #666;
 }
+
+table.user-info-table {
+  font-size: 18px;
+  border: collapse;
+  margin-top: 40px;
+  margin-left: 10px;
+  width: 100%;
+}
+table.user-info-table tr {
+  border: none;
+}
+table.user-info-table tr td {
+  border: none;
+}
