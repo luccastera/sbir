@@ -1,3 +1,14 @@
+.loading-page {
+  background: #fff static_url("bg_pattern.png") repeat scroll 0 0;
+}
+
+.loading-page h1 {
+  font-size: 100px !important;
+  color: #fff !important;
+  padding-top: 40px;
+  font-family: "JosefinSansStdLight", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
 .clearfix {
   display: block;
   clear: both;
@@ -23,6 +34,8 @@ a {
 div.about, div.graph {
   padding: 20px;
   font-size: 1.4em;
+  margin-bottom: 0px;
+  padding-bottom: 10px;
 }
 
 div.about h1, div.about h2 {
@@ -34,7 +47,13 @@ div.about h1, div.about h2 {
 }
 
 div.summary {
-  background-color: #fff;
+  font-size: 1.2em;
+  font-family: "JosefinSansStdLight", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background: #fff static_url("bg_pattern.png") repeat scroll 0 0;
+}
+
+div.summary h2 {
+  margin-top: 0px;
 }
 
 div.solicitations {

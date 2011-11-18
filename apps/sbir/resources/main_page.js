@@ -106,10 +106,10 @@ Sbir.mainPage = SC.Page.design({
     backgrounColor: '#fff',
     childViews: 'about graph'.w(),
     about: Sbir.AboutView.design({
-      layout: {left: 0, right: 0, top: 0, height: 100}
+      layout: {left: 0, right: 0, top: 0, height: 80}
     }),
     graph: Sbir.GraphView.design({
-      layout: {left: 0, right: 0, bottom: 0, top: 100}
+      layout: {left: 0, right: 0, bottom: 0, top: 80}
     })
   }),
   

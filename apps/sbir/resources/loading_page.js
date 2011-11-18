@@ -13,11 +13,12 @@ Sbir.loadingPage = SC.Page.design({
   loadingPane: SC.MainPane.design({
 
     defaultResponder: 'Sbir.statechart',
+    classNames: 'loading-page'.w(),
 
     childViews: 'loadingLabel'.w(),
 
     loadingLabel: SC.LabelView.design({
-      layout: { centerX: 0, centerY: 0, width: 200, height: 18 },
+      layout: { top: 100, centerX: 0, width: 600, height: 200 },
       textAlign: SC.ALIGN_CENTER,
       tagName: "h1", 
       value: "Loading..."

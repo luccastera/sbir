@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'JosefinSansStdLight';
+    src: static_url('/fonts/JosefinSansStd-Light-webfont.eot');
+    src: static_url('/fonts/JosefinSansStd-Light-webfont.eot?#iefix') format('embedded-opentype'),
+         static_url('/fonts/JosefinSansStd-Light-webfont.woff') format('woff'),
+         static_url('/fonts/osefinSansStd-Light-webfont.ttf') format('truetype'),
+         static_url('/fonts/JosefinSansStd-Light-webfont.svg#JosefinSansStdLight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
