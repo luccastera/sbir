@@ -30,11 +30,11 @@ Sbir.mainPage = SC.Page.design({
         })
       }),
       contentView: SC.View.design({
-        backgroundColor: '#fff',
+        classNames: 'brushed'.w(),
         childViews: 'scroller'.w(),
         scroller: SC.ScrollView.design({
           contentView: SC.SourceListView.design({
-            backgroundColor: '#fff',
+            classNames: 'brushed'.w(),
             contentBinding: 'Sbir.agenciesController.arrangedObjects',
             selectionBinding: 'Sbir.agenciesController.selection',
             contentValueKey: 'name',
@@ -75,6 +75,7 @@ Sbir.mainPage = SC.Page.design({
         })
       }),
       contentView: SC.ContainerView.design({
+        layout: {top: 30, left: 0, right: 0, bottom: 0},
         backgroundColor: '#fff',
         contentView: null,
         nowShowingBinding: 'Sbir.containerNowShowing'
@@ -89,7 +90,7 @@ Sbir.mainPage = SC.Page.design({
       contentView: SC.ListView.design({
         contentBinding: 'Sbir.solicitationsController.arrangedObjects',
         selectionBinding: 'Sbir.solicitationsController.selection',
-        classNames: 'solicitation'.w(),
+        classNames: 'solicitation brushed'.w(),
         contentValueKey: 'title',
         rowHeight: 40,
         showAlternatingRows: YES,
@@ -125,6 +126,7 @@ Sbir.mainPage = SC.Page.design({
       childViews: 'list'.w(),
       list: SC.ListView.design({
         classNames: 'scrollbars'.w(),
+        layerId: 'comments-container',
         layout: {left: 0, right: 0, top: 200, bottom: 100},
         contentBinding: 'Sbir.commentsController.arrangedObjects',
         exampleView: Sbir.CommentView
@@ -132,7 +134,7 @@ Sbir.mainPage = SC.Page.design({
     }),
     newComment: SC.View.design({
       layout: {left: 0, right: 0, bottom: 0, height: 100},
-      classNames: 'new-comment'.w(),
+      classNames: 'new-comment brushed'.w(),
       childViews: 'textbox button'.w(),
       textbox: SC.TextFieldView.design({
         classNames: 'comment-box'.w(),
@@ -148,8 +150,7 @@ Sbir.mainPage = SC.Page.design({
   }),
   
   emptyAgencyView: SC.View.design({
-    classNames: 'empty'.w(),
-    backgroundColor: '#fff',
+    classNames: 'empty brushed'.w(),
     childViews: 'label'.w(),
     label: SC.LabelView.design({
       layout: {top: 20, left: 0, right: 0, height: 100},

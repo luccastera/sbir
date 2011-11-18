@@ -101,11 +101,31 @@ Sbir = SC.Application.create(
     }
   },
   
+  highlightDiv: function(divId) {
+    if (SC.$(divId)) {
+      var originalBackgroundColor = SC.$(divId).css('background-color');
+      SC.$(divId).css('background-color', 'rgba(0, 181, 106, 0.046875)');
+      SC.$(divId).animate({
+        'background-opacity': 0.15,
+      }, 500, function() {
+        SC.$(divId).css('background-color', originalBackgroundColor);
+      });
+    }
+  },
+  
   saveCommentCallback: function(response) {
     if (SC.ok(response)) {
       if (response.get('body').status == 'ok') {
         var comment = response.get('body').comment;
         SC.$('.comment-box textarea').val(''); //clear comment box
+        // scroll to bottom
+        var objDiv = document.getElementById('comments-container');
+        objDiv.scrollTop = objDiv.scrollHeight;
+        
+        //highlight item
+        this.invokeLater(function() {
+          Sbir.highlightDiv(SC.$('.comment:last')[0]);
+        }, 50);
       } else {
         if (console && console.log) {console.log('error saving comment');}
       }

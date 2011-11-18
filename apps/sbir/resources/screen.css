@@ -1,5 +1,12 @@
-.loading-page {
+.loading-page, .brushed {
   background: #fff static_url("bg_pattern.png") repeat scroll 0 0;
+}
+.ace.source-list.collection.brushed, .ace.collection.brushed {
+  background: #fff static_url("bg_pattern.png") repeat scroll 0 0;
+}
+
+.ace.collection.alternating .sc-collection-item.even {
+  background-color: #fff;
 }
 
 .loading-page h1 {
@@ -83,7 +90,6 @@ div.empty .sc-label-view {
 
 div.solicitation-details {
   border-bottom: 1px solid #B4B4B4;
-  background-color: #f0f0f0;
   padding: 20px;
   white-space: normal;
   height: 20%;
@@ -91,7 +97,6 @@ div.solicitation-details {
 
 div.new-comment {
   border-top: 1px solid #b4b4b4;
-  background-color: #fff;
 }
 
 div.comment {
