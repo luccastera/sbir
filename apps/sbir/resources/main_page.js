@@ -139,7 +139,14 @@ Sbir.mainPage = SC.Page.design({
       textbox: SC.TextFieldView.design({
         classNames: 'comment-box'.w(),
         layout: {left: 20, top: 20, bottom: 20, right: 200},
-        isTextArea: YES
+        isTextArea: YES,
+        keyDown: function(evt) {
+          if (evt.keyCode === 13) {
+            Sbir.statechart.sendEvent('addComment');
+          } else {
+            return NO;
+          }
+        }
       }),
       button: SC.ButtonView.design({
         layout: {right: 20, width: 120, top: 20, height: 24},

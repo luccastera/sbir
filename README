@@ -11,5 +11,5 @@ TODO
 ====
 
 * Form validation on user form.
-* Adding comment enter box should work.
 * Let user sign-out (clear local storage)
+* schedule cron job to load SBIR solicitations
